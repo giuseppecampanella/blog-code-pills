@@ -6,5 +6,5 @@ services:
       context: .
       dockerfile: Dockerfile.development
     ports:
-      - 1234:3000      
+      - 3000:3000      
       - 9228:9229
