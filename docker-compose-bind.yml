@@ -1,0 +1,13 @@
+version: '1'
+
+services:
+  node-red:
+    volumes:
+      - './node-red-data:/data' 
+    build:
+      context: .
+      dockerfile: Dockerfile-bind
+    ports:
+      - 1880:1880
+    environment:
+      - CREDENTIAL_SECRET=SUPER_SECRET_PASSWORD

@@ -1,0 +1,17 @@
+version: '1'
+
+services:
+  node-red:
+    volumes:
+      - 'node_red_data:/data'     
+    build:
+      context: .
+      dockerfile: Dockerfile-volume
+    ports:
+      - 1880:1880
+    environment:
+      - CREDENTIAL_SECRET=SUPER_SECRET_PASSWORD
+
+volumes:
+  node_red_data:
+    external: true

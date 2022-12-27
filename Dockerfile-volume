@@ -1,0 +1,13 @@
+FROM nodered/node-red:2.2.3-12
+
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
+
+WORKDIR /usr/src/node-red
+
+RUN npm install node-red-node-email
+RUN npm install node-red-contrib-credentials
+
+COPY node-red-data/settings.js /data/settings.js
+COPY node-red-data/flows_cred.json /data/flows_cred.json
+COPY node-red-data/flows.json /data/flows.json
+COPY node-red-data/flows_cred.json data/flows_cred.json
